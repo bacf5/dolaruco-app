@@ -27,29 +27,23 @@ class ViewModel: ObservableObject {
 }
 
 struct DollarViewModel {
-    
     private var dollar: Currency
     
     init(dollar: Currency) {
         self.dollar = dollar
     }
-    
     var nombre: String {
         dollar.nombre
     }
-    
     var moneda: String {
         dollar.moneda
     }
-    
-    var compra: Decimal {
+    var compra: Double {
         dollar.compra
     }
-    
-    var venta: Decimal {
+    var venta: Double {
         dollar.venta
     }
-    
     var fechaActualizacion: String {
         dollar.fechaActualizacion
     }
