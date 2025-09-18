@@ -8,8 +8,8 @@
 import Foundation
 
 struct Currency: Decodable {
-    let compra: Int
-    let venta: Int
+    let compra: Decimal
+    let venta: Decimal
     let casa: String
     let nombre: String
     let moneda: String

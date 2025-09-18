@@ -1,24 +1,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var dolar: Int
-    @State var fetching = false
-    @State var currentTime = Date.now
-    var fetcher = FetchService()
     
     var body: some View {
         VStack {
             HStack(alignment: .center) {
                 Image("mascota")
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 120, height: 120)
                 
                 VStack(alignment: .leading) {
                     Image("dollar")
                         .resizable()
                         .frame(width: 36, height: 36)
 
-                    Text("$ 1480")
+                    Text("$ 1200")
                     
                     Image("euro")
                         .resizable()
@@ -26,22 +22,9 @@ struct ContentView: View {
                         .padding(.top)
                     
                     Text("€ 1780")
-                        
-                    
-                    
                 }
                 .padding()
             }
-            
-            
-//            if fetching {
-//                ProgressView()
-//            } else {
-//                Text("Updated:")
-//                Text("\(currentTime, style: .date)")
-//                    
-//            }
-            
         }
         .padding()
     }
