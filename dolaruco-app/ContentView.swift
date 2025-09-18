@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var currentDate = Date.now
     @StateObject private var vm: ViewModel
     
     init(vm: ViewModel) {
@@ -13,9 +14,10 @@ struct ContentView: View {
             Image("mascota")
                 .resizable()
                 .frame(width: 150, height: 150)
+                
             
             VStack{
-                Text("Dolar 💵")
+                Text("Dolar hoy \(currentDate, style: .date)")
                     .font(.title2)
                     .padding(.top)
                 
@@ -25,7 +27,7 @@ struct ContentView: View {
                             Image("\(dolar.moneda)")
                                 .resizable()
                                 .frame(width: 24, height: 24)
-                            
+                                
                             Text("\(dolar.nombre)")
                                 .opacity(0.4)
 //                            Divider()
@@ -34,7 +36,6 @@ struct ContentView: View {
                         Spacer()
                         Text(dolar.venta.formatAsCurrency())
                     }
-                    
                 }.task {
                     await vm.populateDollars()
                 }
