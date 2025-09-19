@@ -11,7 +11,6 @@ import Combine
 @main
 struct dolaruco_appApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    
     var body: some Scene {
         WindowGroup {
             ContentView(vm: ViewModel())
@@ -23,7 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
-    private var dollarListVM: ViewModel!
+    
+    var dollarListVM: ViewModel!
     
     @MainActor
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -39,9 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
         
         self.popover = NSPopover()
-        self.popover.contentSize = NSSize(width: 450, height: 450)
+        self.popover.contentSize = NSSize(width: 500, height: 450)
         self.popover.behavior = .transient
         self.popover.contentViewController = NSHostingController(rootView: ContentView(vm: self.dollarListVM))
+        
         
         
     }
@@ -51,6 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         Task {
             await self.dollarListVM.populateDollars()
         }
+        
         if let button = statusItem.button {
             if popover.isShown {
                 self.popover.performClose(nil)
