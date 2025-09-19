@@ -13,22 +13,23 @@ import Combine
 class ViewModel: ObservableObject {
     
     @Published var dollars: [DollarViewModel] = []
+    @Published var isLoading = false
     
     func populateDollars() async {
+        isLoading = true
         do {
             let dollars = try await FetchService().getCurrency(url: Constants.Urls.dollarApi)
             self.dollars = dollars.map(DollarViewModel.init)
         } catch {
             print(error)
         }
-        
+        isLoading = false
     }
-    
 }
 
 struct DollarViewModel {
-    private var dollar: Currency
     
+    private var dollar: Currency
     init(dollar: Currency) {
         self.dollar = dollar
     }
