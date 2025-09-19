@@ -4,6 +4,9 @@ struct ContentView: View {
     
     @State var currentDate = Date.now
     @StateObject private var vm: ViewModel
+    let githubProject = URL(string: "https://github.com/bacf5/dolaruco-app")!
+
+    
     
     init(vm: ViewModel) {
         self._vm = StateObject(wrappedValue: vm)
@@ -17,20 +20,27 @@ struct ContentView: View {
                     .frame(width: 200, height: 200)
                     .shadow(color: .black, radius: 4)
                 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "arrow.2.circlepath.circle")
-                        .font(.title2)
-                        .foregroundStyle(.green)
+            
+                    Button{
+                        NSApplication.shared.terminate(nil)
+                    } label: {
+                    Text("Close App")
+                    }
+                
+                VStack {
+                    Link(destination: githubProject) {
+                        Image("github")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
                 }
-                .buttonStyle(.borderless)
             }
                 
             VStack{
                 Text("Dolar hoy \(currentDate, style: .date)")
                     .font(.title2)
                     .padding(.top)
+                    .fontWeight(.semibold)
                 
                 VStack {
                     if vm.isLoading {
@@ -60,7 +70,7 @@ struct ContentView: View {
             }
         }.frame(width: 500, height: 450)
         HStack{
-            Text("Copyright © 2025 - Bruno")
+            Text("Copyright © 2025 Bruno - Valores de: https://dolarapi.com/")
                                 .font(.system(size: 8))
                                 .foregroundColor(Color.gray)
                                 .padding(.bottom)
