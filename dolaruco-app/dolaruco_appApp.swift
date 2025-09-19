@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let statusButton = statusItem.button {
-            statusButton.image = NSImage(systemSymbolName: "dollarsign.bank.building", accessibilityDescription: "Dollar Sign")
+            statusButton.image = NSImage(systemSymbolName: "dollarsign.bank.building.fill", accessibilityDescription: "Dollar Sign Bank")
             statusButton.action = #selector(togglePopover)
         }
         
@@ -42,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         self.popover.contentSize = NSSize(width: 500, height: 450)
         self.popover.behavior = .transient
         self.popover.contentViewController = NSHostingController(rootView: ContentView(vm: self.dollarListVM))
+        
         
         
         
