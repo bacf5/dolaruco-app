@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var scale = 1.0
     @State var currentDate = Date.now
     @StateObject private var vm: ViewModel
     let githubProject = URL(string: "https://github.com/bacf5/dolaruco-app")!
@@ -21,17 +22,23 @@ struct ContentView: View {
                     .shadow(color: .black, radius: 4)
                 
             
-                    Button{
-                        NSApplication.shared.terminate(nil)
-                    } label: {
+                Button{
+                    NSApplication.shared.terminate(nil)
+                } label: {
                     Text("Close App")
-                    }
+                }
                 
                 VStack {
                     Link(destination: githubProject) {
                         Image("github")
                             .resizable()
                             .frame(width: 20, height: 20)
+                            .onHover {
+                                hover in withAnimation {
+                                    scale = hover ? 1.2 : 1.0
+                                }
+                            }
+                            .scaleEffect(scale)
                     }
                 }
             }
@@ -59,21 +66,24 @@ struct ContentView: View {
                                 }
                                 
                                 Spacer()
-                                Text(dolar.venta, format: .currency(code: "USD"))
+                                Text(
+                                    dolar.venta,
+                                    format: .currency(code: "USD")
+                                )
                             }
                         }.scrollContentBackground(.hidden)
                     }
                 }.task {
-//                    await vm.populateDollars()
+//                                        await vm.populateDollars()
                 }
             
             }
         }.frame(width: 500, height: 450)
         HStack{
             Text("Copyright © 2025 Bruno - Valores de: https://dolarapi.com/")
-                                .font(.system(size: 8))
-                                .foregroundColor(Color.gray)
-                                .padding(.bottom)
+                .font(.system(size: 8))
+                .foregroundColor(Color.gray)
+                .padding(.bottom)
         }
     }
 }
