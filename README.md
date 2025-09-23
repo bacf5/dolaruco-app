@@ -10,7 +10,6 @@
 - [The Problem](#the-problem)
 - [The Solution](#the-solution)
 - [Features](#features)
-- [Showcase](#showcase)
 - [To-do](#to-do)
 
 ## Description
@@ -36,3 +35,7 @@ At the moment, Dolaruco-app displays the following US dollar exchange rates agai
 - **Dolar Tarjeta**: The "card" dollar rate, used for foreign purchases.
 - **Dolar Mayorista**: The wholesale dollar rate, used for commercial transactions.
 
+## To-do
+
+- [ ] Future update will include support for additional currencies related to the Argentine Peso: UYU, CLP, BRL.
+- [ ] Icon made in Icon Composer
