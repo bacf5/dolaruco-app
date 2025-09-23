@@ -1,8 +1,8 @@
 <h2 align="center">
-  Dolaruco-app 💵
+  Dolaruco 💵
 </h2>
 
-![App window](dolaruco-app/Samples/dolaruco-app-dark.png)
+<p align="center"><img width="300" height="300" alt="image" src="dolaruco-app/Samples/icon-app-dark.png"></p>
 
 ## Table of Contents
 
@@ -10,6 +10,7 @@
 - [The Problem](#the-problem)
 - [The Solution](#the-solution)
 - [Features](#features)
+- [Preview](#preview)
 - [To-do](#to-do)
 
 ## Description
@@ -35,7 +36,12 @@ At the moment, Dolaruco-app displays the following US dollar exchange rates agai
 - **Dolar Tarjeta**: The "card" dollar rate, used for foreign purchases.
 - **Dolar Mayorista**: The wholesale dollar rate, used for commercial transactions.
 
+## Preview
+
+![App open](dolaruco-app/Samples/dolaruco-app-dark.png)
+
 ## To-do
 
-- [ ] Future update will include support for additional currencies related to the Argentine Peso: UYU, CLP, BRL.
-- [ ] Icon made in Icon Composer
+- [ ] Future update will include support for additional currencies related to the Argentine Peso: UYU, CLP, BRL and EUR.
+- [X] ~~Icon made in Icon Composer.~~
+- [ ] Make a MacOS installer to easy install.
