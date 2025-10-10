@@ -35,6 +35,9 @@ At the moment, Dolaruco-app displays the following US dollar exchange rates agai
 - **Dolar Crypto**: The cryptocurrency exchange rate for USDT.
 - **Dolar Tarjeta**: The "card" dollar rate, used for foreign purchases.
 - **Dolar Mayorista**: The wholesale dollar rate, used for commercial transactions.
+
+And also, theses currencies:
+
 - **Uruguayan Peso.**
 - **Chilean Peso.**
 - **Brasilean Real.**
@@ -49,3 +52,4 @@ At the moment, Dolaruco-app displays the following US dollar exchange rates agai
 - [X] ~~Future update will include support for additional currencies related to the Argentine Peso: UYU, CLP, BRL and EUR.~~
 - [X] ~~Icon made in Icon Composer.~~
 - [ ] Make a MacOS installer to easy install.
+- [ ] Integrate Sparkle Updater.
