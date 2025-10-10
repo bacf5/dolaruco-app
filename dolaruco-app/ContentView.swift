@@ -21,17 +21,15 @@ struct ContentView: View {
                     .frame(width: 200, height: 200)
                     .shadow(color: .black, radius: 4)
                 
-                Button {
+                Button ("Other Currencies") {
                     showOtherCurrencies.toggle()
-                } label: {
-                    Text("Other Currencies")
                 }
+                .buttonStyle(.glass)
                 
-                Button{
+                Button("Close App"){
                     NSApplication.shared.terminate(nil)
-                } label: {
-                    Text("Close App")
                 }
+                .buttonStyle(.glass)                
                 
                 VStack {
                     Link(destination: githubProject) {
@@ -45,6 +43,7 @@ struct ContentView: View {
                             }
                             .scaleEffect(scale)
                     }
+                    
                 }
             }
                 
