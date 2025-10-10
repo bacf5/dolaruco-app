@@ -43,17 +43,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         self.popover.behavior = .transient
         self.popover.contentViewController = NSHostingController(rootView: ContentView(vm: self.dollarListVM))
         
-        
-        
-        
     }
     
     @objc func togglePopover() {
-        
         Task {
             await self.dollarListVM.populateDollars()
         }
-        
         if let button = statusItem.button {
             if popover.isShown {
                 self.popover.performClose(nil)
