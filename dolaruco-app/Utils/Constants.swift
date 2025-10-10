@@ -11,5 +11,6 @@ struct Constants {
     
     struct Urls {
         static let dollarApi = URL(string: "https://dolarapi.com/v1/dolares")!
+        static let otherCurrenciesApi = URL(string: "https://dolarapi.com/v1/cotizaciones")!
     }
 }
