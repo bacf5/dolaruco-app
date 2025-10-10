@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+        
     @State private var scale = 1.0
+    @State private var showOtherCurrencies: Bool = false
     @State var currentDate = Date.now
     @StateObject private var vm: ViewModel
     let githubProject = URL(string: "https://github.com/bacf5/dolaruco-app")!
-
     
     
     init(vm: ViewModel) {
@@ -21,7 +21,12 @@ struct ContentView: View {
                     .frame(width: 200, height: 200)
                     .shadow(color: .black, radius: 4)
                 
-            
+                Button {
+                    showOtherCurrencies.toggle()
+                } label: {
+                    Text("Other Currencies")
+                }
+                
                 Button{
                     NSApplication.shared.terminate(nil)
                 } label: {
@@ -50,40 +55,74 @@ struct ContentView: View {
                     .fontWeight(.semibold)
                 
                 VStack {
-                    if vm.isLoading {
-                        ProgressView("Cargando...")
-                    } else {
-                        List(vm.dollars, id: \.nombre) { dolar in
+                    if (showOtherCurrencies == true) {
+                        if vm.isLoading {
+                            ProgressView("Loading...")
+                        }
+                        
+                        List(
+                            vm.otherCurrencies,
+                            id: \.nombre
+                        ) { otherCurrencies in
                             HStack(alignment: .center){
                                 VStack(alignment: .leading) {
-                                    Image("\(dolar.moneda)")
+                                    Image("\(otherCurrencies.moneda)")
                                         .resizable()
                                         .frame(width: 24, height: 24)
                                     
-                                    Text("\(dolar.nombre)")
+                                    Text("\(otherCurrencies.nombre)")
                                         .opacity(0.4)
                                     //                            Divider()
                                 }
                                 
                                 Spacer()
                                 Text(
-                                    dolar.venta,
-                                    format: .currency(code: "USD")
+                                    otherCurrencies.venta,
+                                    format: .currency(code: "ARS")
                                 )
                             }
                         }.scrollContentBackground(.hidden)
+                    } else {
+                        if (showOtherCurrencies == false) {
+                            if vm.isLoading {
+                                ProgressView("Loading...")
+                            }
+                            List(vm.dollars, id: \.nombre) { dolar in
+                                HStack(alignment: .center){
+                                    VStack(alignment: .leading) {
+                                        Image("\(dolar.moneda)")
+                                            .resizable()
+                                            .frame(width: 24, height: 24)
+                                        
+                                        Text("\(dolar.nombre)")
+                                            .opacity(0.4)
+                                        //                            Divider()
+                                    }
+                                    
+                                    Spacer()
+                                    Text(
+                                        dolar.venta,
+                                        format: .currency(code: "ARS")
+                                    )
+                                }
+                            }.scrollContentBackground(.hidden)
+                        }
                     }
-                }.task {
-//                                        await vm.populateDollars()
+                }
+                .task {
+                    //                    await vm.populateDollars()
+                    await vm.populateOtherCurrencies()
                 }
             
             }
         }.frame(width: 500, height: 450)
         HStack{
-            Text("Copyright © 2025 Bruno - Valores de: https://dolarapi.com/")
-                .font(.system(size: 8))
-                .foregroundColor(Color.gray)
-                .padding(.bottom)
+            Text(
+                "Made with ❤ - 2025 Bruno Caruso - Valores de: https://dolarapi.com/"
+            )
+            .font(.system(size: 8))
+            .foregroundColor(Color.gray)
+            .padding(.bottom)
         }
     }
 }
