@@ -29,7 +29,12 @@ struct ContentView: View {
                 Button("Close App"){
                     NSApplication.shared.terminate(nil)
                 }
-                .buttonStyle(.glass)                
+                .buttonStyle(.glass)
+                
+                Button("About") {
+                    NSApplication.shared.orderFrontStandardAboutPanel()
+                }
+                .buttonStyle(.glass)
                 
                 VStack {
                     Link(destination: githubProject) {
