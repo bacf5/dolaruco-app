@@ -13,6 +13,7 @@ import Combine
 class ViewModel: ObservableObject {
     
     @Published var dollars: [DollarViewModel] = []
+    @Published var otherCurrencies: [OtherCurrenciesViewModel] = []
     @Published var isLoading = false
     
     func populateDollars() async {
@@ -20,6 +21,17 @@ class ViewModel: ObservableObject {
         do {
             let dollars = try await FetchService().getCurrency(url: Constants.Urls.dollarApi)
             self.dollars = dollars.map(DollarViewModel.init)
+        } catch {
+            print(error)
+        }
+        isLoading = false
+    }
+    
+    func populateOtherCurrencies() async {
+        isLoading = true
+        do {
+            let otherCurrencies = try await FetchService().getCurrency(url: Constants.Urls.otherCurrenciesApi)
+            self.otherCurrencies = otherCurrencies.map(OtherCurrenciesViewModel.init)
         } catch {
             print(error)
         }
@@ -50,3 +62,25 @@ struct DollarViewModel {
     }
 }
 
+struct OtherCurrenciesViewModel {
+    
+    private var otherCurrencies: Currency
+    init(otherCurrencies: Currency) {
+        self.otherCurrencies = otherCurrencies
+    }
+    var nombre: String {
+        otherCurrencies.nombre
+    }
+    var moneda: String {
+        otherCurrencies.moneda
+    }
+    var compra: Double {
+        otherCurrencies.compra
+    }
+    var venta: Double {
+        otherCurrencies.venta
+    }
+    var fechaActualizacion: String {
+        otherCurrencies.fechaActualizacion
+    }
+}
