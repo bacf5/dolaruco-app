@@ -114,7 +114,7 @@ struct ContentView: View {
                     }
                 }
                 .task {
-                    //                    await vm.populateDollars()
+                    await vm.populateDollars()
                     await vm.populateOtherCurrencies()
                 }
             
