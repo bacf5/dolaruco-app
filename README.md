@@ -41,9 +41,11 @@ And also, theses currencies:
 - **Uruguayan Peso.**
 - **Chilean Peso.**
 - **Brasilean Real.**
-- **Euro**
+- **Euro.**
 
 ## Preview
+
+https://github.com/user-attachments/assets/3754db72-00ba-4152-b07d-d1da8c1ebacd
 
 ![App open](dolaruco-app/Samples/dolaruco-app-dark.png)
 
