@@ -47,12 +47,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     @objc func togglePopover() {
         Task {
+            await self.dollarListVM.populateOtherCurrencies()
             await self.dollarListVM.populateDollars()
         }
         if let button = statusItem.button {
             if popover.isShown {
                 self.popover.performClose(nil)
             } else {
+                popover.animates = false
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }
         }

@@ -53,10 +53,22 @@ struct ContentView: View {
             }
                 
             VStack{
-                Text("Dolar hoy \(currentDate, style: .date)")
-                    .font(.title2)
-                    .padding(.top)
-                    .fontWeight(.semibold)
+                HStack {
+                    Text("Dolar hoy \(currentDate, style: .date)")
+                        .font(.title2)
+                        .padding(.top)
+                        .fontWeight(.semibold)
+                    
+//                    Button {
+//                        
+//                    } label: {
+//                        Image(systemName: "arrow.trianglehead.clockwise.rotate.90")
+//                            
+//                            
+//                    }
+//                    .padding(.top)
+                }
+                
                 
                 VStack {
                     if (showOtherCurrencies == true) {
@@ -85,7 +97,10 @@ struct ContentView: View {
                                     format: .currency(code: "ARS")
                                 )
                             }
-                        }.scrollContentBackground(.hidden)
+                            .listRowSeparator(.hidden)
+                        }
+                        .scrollContentBackground(.hidden)
+                        
                     } else {
                         if (showOtherCurrencies == false) {
                             if vm.isLoading {
@@ -109,6 +124,7 @@ struct ContentView: View {
                                         format: .currency(code: "ARS")
                                     )
                                 }
+                                .listRowSeparator(.hidden)
                             }.scrollContentBackground(.hidden)
                         }
                     }
