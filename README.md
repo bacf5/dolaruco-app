@@ -1,8 +1,10 @@
-<h2 align="center">
-  Dolaruco 💵
-</h2>
+<h3 align="center"> Dolaruco App 💵 </h3>
+<p align="center"><img width="128" alt="image" src="dolaruco-app/Samples/icon-app-dark.png"></p>
 
-<p align="center"><img width="300" height="300" alt="image" src="dolaruco-app/Samples/icon-app-dark.png"></p>
+<p align="center">
+<img src="https://img.shields.io/badge/macOS-26.0+-2980b9.svg" />
+<img src="https://img.shields.io/badge/swift-6.0+-8e44ad.svg" />
+</p>
 
 ## Table of Contents
 
@@ -11,6 +13,7 @@
 - [The Solution](#the-solution)
 - [Features](#features)
 - [Preview](#preview)
+- [Install](#install)
 - [To-do](#to-do)
 
 ## Description
@@ -47,11 +50,40 @@ And also, theses currencies:
 
 https://github.com/user-attachments/assets/3754db72-00ba-4152-b07d-d1da8c1ebacd
 
-![App open](dolaruco-app/Samples/dolaruco-app-dark.png)
+<p align="center"><img width="600" alt="image" src="dolaruco-app/Samples/dolaruco-app-dark.png"></p>
+
+
+## Install
+
+Download the latest version from the [releases](https://github.com/bacf5/dolaruco-app/releases/latest) page, or use [Homebrew](https://brew.sh/):
+
+```sh
+brew install bacf5/dolarucoapp/dolarucoapp
+```
+
+<p align="center"><img width="500" alt="image" src="dolaruco-app/Samples/dolaruco-install-homebrew.gif"></p>
+
+
+> [!IMPORTANT]
+> I don't have an Apple Developer account yet. The application will show a popup on first launch that the app is from an unidentified developer.
+> 1. Click **OK** to close the popup.
+> 2. Open **System Settings** > **Privacy & Security**.
+> 3. Scroll down and click **Open Anyway** next to the warning about the app.
+> 4. Confirm your choice if prompted.
+>
+> You only need to do this once.
+
+If you’ve checked the source code and know it’s safe, you can install it this way adding the flag "--no-quarantine" instead of changing system settings.
+
+```sh
+brew install bacf5/dolarucoapp/dolarucoapp --no-quarantine
+```
 
 ## To-do
 
 - [X] ~~Future update will include support for additional currencies related to the Argentine Peso: UYU, CLP, BRL and EUR.~~
 - [X] ~~Icon made in Icon Composer.~~
-- [ ] Make a MacOS installer to easy install.
-- [ ] Integrate Sparkle Updater.
+- [X] ~~Make a MacOS installer to easy install & updates.~~ (Via homebrew)
+- [ ] Check prices offered from saldo.com.ar
+<!--- [ ] Integrate Sparkle Updater / maybe in the future, for now brew install & update are good -->
+
