@@ -61,7 +61,7 @@ Download the latest version from the [releases](https://github.com/bacf5/dolaruc
 brew install bacf5/dolarucoapp/dolarucoapp
 ```
 
-<p align="center"><img width="500" alt="image" src="dolaruco-app/Samples/dolaruco-install-homebrew.gif"></p>
+<p align="center"><img alt="image" src="dolaruco-app/Samples/dolaruco-install-homebrew.gif"></p>
 
 
 > [!IMPORTANT]
@@ -73,7 +73,7 @@ brew install bacf5/dolarucoapp/dolarucoapp
 >
 > You only need to do this once.
 
-If you’ve checked the source code and know it’s safe, you can install it this way adding the flag "--no-quarantine" instead of changing system settings.
+If you’ve checked the source code and know it’s safe, you can install it this way adding the flag `--no-quarantine` instead of changing system settings.
 
 ```sh
 brew install bacf5/dolarucoapp/dolarucoapp --no-quarantine
@@ -86,4 +86,5 @@ brew install bacf5/dolarucoapp/dolarucoapp --no-quarantine
 - [X] ~~Make a MacOS installer to easy install & updates.~~ (Via homebrew)
 - [ ] Check prices offered from saldo.com.ar
 <!--- [ ] Integrate Sparkle Updater / maybe in the future, for now brew install & update are good -->
+
 
